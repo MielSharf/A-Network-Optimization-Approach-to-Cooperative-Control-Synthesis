@@ -71,10 +71,10 @@ zetas{3} = [2;2;2];
 zetas{4} = [0;3;0];
 zetas{5} = [3;0;-3];
 
+%Compute different mu_zetas from plant and zeta.
 muzeta_0 = FindSupportVectorsForLinearFormation(zeta_0,omegas,ws);
 muzetas = cell(size(zetas));
 for i=1:NumberOfSwitches
-    %Compute different mu_zetas from plant and zeta.
     muzetas{i} = FindSupportVectorsForLinearFormation(zetas{i},omegas,ws);
 end
 
@@ -172,5 +172,4 @@ mu = zeros(length(zeta),1);
 mu(1) = k_inv_y(1);
 mu(2) = mu(1) + k_inv_y(2);
 mu(3) = mu(2) + k_inv_y(3);
-% mu = -mu;
 end
